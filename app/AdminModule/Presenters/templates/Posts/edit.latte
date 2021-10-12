@@ -1,0 +1,69 @@
+{block content}
+    {define title}Úprava podstránky{/define}
+
+    {form edit}
+        <div class="card-body">
+
+            <div class="alert alert-danger" role="alert" n:foreach="$form->errors as $error">
+                {$error}
+            </div>
+
+            <div class="form-row">
+                <div class="col-1">
+                    <div class="form-group">
+                        {label id}
+                        {input id class => 'form-control'}
+                    </div>
+                </div>
+                <div class="col-11">
+                    <div class="form-group">
+                        {label title}
+                        {input title class => 'form-control'}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-12">
+                    <div class="form-group">
+                        {label content}
+                        {input content id => 'editor', class => 'form-control'}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-6">
+                    <div class="form-group">
+                        {label image}
+                        {input image, class => 'form-control'}
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        {label category}
+                        {input category, class => 'form-control'}
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success">Uložit</button>
+            <a n:href="Page:" class="btn btn-danger" title="Zpět">Zpět</a>
+        </div>
+    {/form}
+{/block}
+
+{define addScripts}
+    <script>
+        const editor = Jodit.make('#editor' ,{
+            uploader: {
+                url: 'https://xdsoft.net/jodit/connector/index.php?action=fileUpload'
+            },
+            filebrowser: {
+                ajax: {
+                    url: 'https://xdsoft.net/jodit/connector/index.php'
+                }
+            }
+        });
+    </script>
+{/define}

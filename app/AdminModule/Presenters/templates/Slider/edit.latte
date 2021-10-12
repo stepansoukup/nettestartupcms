@@ -1,0 +1,63 @@
+{block content}
+
+{define title}Editace slideru{/define}
+
+    {form edit}
+
+    <div class="card-body">
+
+        <div class="alert alert-danger" role="alert" n:foreach="$form->errors as $error">
+            {$error}
+        </div>
+
+        <!-- Ukázka jak dostat hodnotu jako text: <b></b> -->
+        {ifset $default}
+            <div class="row">
+              <div class="col-md-6">
+                <img src="/img/slider/{$default->img}" class="img-fluid">
+              </div>
+              <div class="col-md-6">
+                <img src="/img/slider/sub_{$default->img}" class="img-fluid">
+              </div>
+            </div>
+        {/ifset}
+
+      <div class="form-group">
+        {label id}
+        {input id class => 'form-control'}
+      </div>
+
+      <div class="form-group">
+        {label url}
+        {input url class => 'form-control'}
+      </div>
+
+
+
+      <div class="form-group">
+                    {label img}
+                    <div class="input-group">
+                      <div class="custom-file">
+                        {input img class => 'custom-file-input'}
+                        <label class="custom-file-label" for="exampleInputFile" data-browse="Vybrat">Vybrat obrázek</label>
+                      </div>
+                    </div>
+                  </div>
+
+        <button type="submit" class="btn btn-success">
+            <i class="fa fa-check"></i> Uložit
+        </button>
+    </div>
+
+    {/form}
+
+{/block}
+
+
+
+{define addScripts}
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#ckeditor' ) );
+</script>
+{/define}

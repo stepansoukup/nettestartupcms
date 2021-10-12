@@ -1,0 +1,11 @@
+{block content}
+    {include '../inc/subSlider.latte'}
+
+    <section class="py-5 page">
+        <div class="container">
+            <h2 class="pageTitle" n:block="title">{$page->title}</h2>
+            <p class="text-justify">{$page->content|noescape}</p>
+        </div>
+    </section>
+
+{/block}

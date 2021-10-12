@@ -1,0 +1,59 @@
+{block content}
+    {define title}Úprava uživatele{/define}
+
+    {form detail}
+        <div class="card-body">
+
+            <div class="alert alert-danger" role="alert" n:foreach="$form->errors as $error">
+                {$error}
+            </div>
+
+            <div class="form-row">
+                <div class="col-1">
+                    <div class="form-group">
+                        {label id}
+                        {input id class => 'form-control'}
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="form-group">
+                        {label username}
+                        {input username class => 'form-control'}
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        {label password}
+                        {input password class => 'form-control'}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-6">
+                    <div class="form-group">
+                        {label firstname}
+                        {input firstname class => 'form-control'}
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        {label lastname}
+                        {input lastname class => 'form-control'}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-6">
+                    <div class="form-group">
+                        {label email}
+                        {input email class => 'form-control'}
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success">Uložit</button>
+        </div>
+    {/form}
+{/block}

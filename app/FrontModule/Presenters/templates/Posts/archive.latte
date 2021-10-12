@@ -1,0 +1,64 @@
+{block content}
+    <section class="py-5 page">
+        <div class="container">
+
+            <div class="row articles">
+                {foreach $articles as $p}
+
+                    <div class="col-4 mb-4">
+                        <div class="post">
+                            <a n:href="Posts:post $p->slug">
+                                <img class="postImage" src="/images/{$p->image}" alt="{$p->title}">
+                                <div class="postsTitle">{$p->title}</div>
+                            </a>
+                        </div>
+                    </div>
+
+                {/foreach}
+            </div>
+
+            {if $category}
+
+                <div class="pagination">
+                    {if !$paginator->isFirst()}
+                        <a n:href="archive, 1, $category->slug">První</a>
+                        &nbsp;|&nbsp;
+                        <a n:href="archive, $paginator->page-1, $category->slug">Předchozí</a>
+                        &nbsp;|&nbsp;
+                    {/if}
+
+                        Stránka {$paginator->getPage()} z {$paginator->getPageCount()}
+
+	            {if !$paginator->isLast()}
+                        &nbsp;|&nbsp;
+                        <a n:href="archive, $paginator->getPage() + 1, $category->slug">Další</a>
+                        &nbsp;|&nbsp;
+                        <a n:href="archive, $paginator->getPageCount(), $category->slug">Poslední</a>
+                    {/if}
+                </div>
+
+            {else}
+                <div class="pagination">
+                    {if !$paginator->isFirst()}
+                        <a n:href="archive, 1">První</a>
+                        &nbsp;|&nbsp;
+                        <a n:href="archive, $paginator->page-1">Předchozí</a>
+                        &nbsp;|&nbsp;
+                    {/if}
+
+                        Stránka {$paginator->getPage()} z {$paginator->getPageCount()}
+
+	            {if !$paginator->isLast()}
+                        &nbsp;|&nbsp;
+                        <a n:href="archive, $paginator->getPage() + 1">Další</a>
+                        &nbsp;|&nbsp;
+                        <a n:href="archive, $paginator->getPageCount()">Poslední</a>
+                    {/if}
+                </div>
+            {/if}
+
+        </div>
+    </section>
+
+{/block}
+

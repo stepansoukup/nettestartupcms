@@ -1,0 +1,56 @@
+{block content}
+    {if $settings[26]->value === '1'}
+        {include '../inc/slider.latte'}
+    {/if}
+    <section class="py-5 page">
+        <div class="container">
+
+            <div class="row articles">
+            {foreach $posts as $post}
+
+                    {if $settings[26]->value === '0'}
+                        {first}
+                        <div class="col-12 mb-4">
+                            <div class="post">
+                                <a n:href="Posts:post $post->slug">
+                                    <img class="postImage" src="/images/{$post->image}" alt="{$post->title}">
+                                    <div class="postTitle">{$post->title}</div>
+                                </a>
+                            </div>
+                        </div>
+                        {/first}
+
+                        {if $iterator > '1'}
+                            {include postList, p => $post}
+                        {/if}
+
+                    {else}
+                        {include postList, p => $post}
+                    {/if}
+
+            {/foreach}
+                <div class="more-articles">
+                    {if $category}
+                        <a n:href="archive '1', $category->slug" class="btn btn-danger" title="Další články">Další články</a>
+                    {else}
+                        <a n:href="archive '1'" class="btn btn-danger" title="Další články">Další články</a>
+                    {/if}
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{/block}
+
+{define postList, $p}
+    <div class="col-4 mb-4">
+        <div class="post">
+            <a n:href="Posts:post $p->slug">
+                <img class="postImage" src="/images/{$p->image}" alt="{$p->title}">
+                <div class="postsTitle">{$p->title}</div>
+            </a>
+        </div>
+    </div>
+{/define}
+

@@ -1,0 +1,226 @@
+{block content}
+
+	{define title}Vítejte v administraci{/define}
+
+<style>
+
+</style>
+
+
+	<div class="row">
+		<div class="col-lg-12">
+			{form edit}
+			<div class="card">
+				<div class="card-body">
+
+						<div class="alert alert-danger" role="alert" n:foreach="$form->errors as $error">
+							{$error}
+						</div>
+
+						<div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {label 1}
+                                    {input 1 class => 'form-control'}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {label 2}
+                                    {input 2 class => 'form-control'}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {label 3}
+                                    {input 3 class => 'form-control'}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {label 25}
+                                    {input 25 class => 'form-control'}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="_26" class="form-check-input" id="frm-edit-26" {if $defaults[26]->value}checked{/if}>
+                                    <label class="form-check-label" for="frm-edit-26">Zobrazovat slider na úvodní stránce</label>
+                                </div>
+                            </div>
+                        </div>
+
+						<div class="row mb-3">
+                            <div class="col-md-6">
+                                <img src="{$basePath}/img/{$settings[4]->value}" height="40" class="mb-3">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="_4" id="logo">
+                                    <label class="custom-file-label" for="logo">Logo webu (min. 200x40, png)</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="{$basePath}/img/{$settings[5]->value}" height="40" class="mb-3">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="_5" id="favicon">
+                                    <label class="custom-file-label" for="favicon">Favicon (min. 180x180, png)</label>
+                                </div>
+                            </div>
+                        </div>
+						<div class="row">
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <div style="display: inline-block; width: 20px; height: 20px; border: 1px solid black; background-color: #{$settings[6]->value};"></div> {label 6}
+                                    {input 6 class => 'form-control'}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div style="display: inline-block; width: 20px; height: 20px; border: 1px solid black; background-color: #{$settings[7]->value};"></div> {label 7}
+                                    {input 7 class => 'form-control'}
+                                </div>
+                            </div>
+                        </div>
+						<div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div style="display: inline-block; width: 20px; height: 20px; border: 1px solid black; background-color: #{$settings[8]->value};"></div> {label 8}
+                                    {input 8 class => 'form-control'}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div style="display: inline-block; width: 20px; height: 20px; border: 1px solid black; background-color: #{$settings[9]->value};"></div> {label 9}
+                                    {input 9 class => 'form-control'}
+                                </div>
+                            </div>
+                        </div>
+						<div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div style="display: inline-block; width: 20px; height: 20px; border: 1px solid black; background-color: #{$settings[10]->value};"></div> {label 10}
+                                    {input 10 class => 'form-control'}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div style="display: inline-block; width: 20px; height: 20px; border: 1px solid black; background-color: #{$settings[11]->value};"></div> {label 11}
+                                    {input 11 class => 'form-control'}
+                                </div>
+                            </div>
+                        </div>
+
+
+
+						<div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    {label 12}
+                                    {input 12 class => 'form-control'}
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    {label 13}
+                                    {input 13 class => 'form-control'}
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    {label 23}
+                                    {input 23 class => 'form-control'}
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    {label 24}
+                                    {input 24 class => 'form-control'}
+                                </div>
+                            </div>
+                        </div>
+
+						<div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {label 14}
+                                    {input 14 class => 'form-control'}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {label 15}
+                                    {input 15 class => 'form-control'}
+                                </div>
+                            </div>
+                        </div>
+						<div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {label 16}
+                                    {input 16 class => 'form-control'}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {label 17}
+                                    {input 17 class => 'form-control'}
+                                </div>
+                            </div>
+                        </div>
+						<div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {label 18}
+                                    {input 18 class => 'form-control'}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {label 19}
+                                    {input 19 class => 'form-control'}
+                                </div>
+                            </div>
+                        </div>
+						<div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {label 20}
+                                    {input 20 class => 'form-control'}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {label 21}
+                                    {input 21 class => 'form-control'}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {label 22}
+                            {input 22 class => 'form-control'}
+                        </div>
+
+						<button type="submit" class="btn btn-success">
+							<i class="fa fa-check"></i> Uložit
+						</button>
+
+				</div>
+			</div>
+			{/form}
+		</div>
+	</div>
+	<!-- /.row -->
+
+
+
+{/block}
+
+{define addScripts}
+
+{/define}

@@ -1,0 +1,17 @@
+{block content}
+
+    <section class="py-5 page">
+        <div class="container">
+            <div class="post">
+                <img class="postImage" src="/images/{$post->image}" alt="{$post->title}">
+                <div class="postTitle" n:block="title">{$post->title}</div>
+            </div>
+
+            <p class="text-justify">{$post->content|noescape}</p>
+            <hr>
+            <p>{$post->date|date:'j. n. Y'} | <a href="mailto:{$users[$post->user]->email}" target="_blank">{$users[$post->user]->firstname} {$users[$post->user]->lastname}</a> |
+                <a href="{$basePath}/posts/{$category[$post->category]->slug}">{$category[$post->category]->name}</a></p>
+        </div>
+    </section>
+
+{/block}

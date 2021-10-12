@@ -1,0 +1,24 @@
+<!-- Slider -->
+<header class="bg-primary py-0 slider">
+
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+
+      <div class="carousel-item {if $iterator->first}active{/if}" n:foreach="$slides as $slide" data-interval="{$settings[24]->value}000">
+        <a href="{$slide->url}" target="_blank" n:tag-if="$slide->url">
+          <img class="d-block w-100" src="/img/slider/sub_{$slide->img}" alt="Slide {$slide->img}">
+        </a>
+      </div>
+
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+</header>

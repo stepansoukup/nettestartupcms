@@ -1,0 +1,30 @@
+{block content}
+    {define title}Správa uživatelů{/define}
+
+    <table class="table table-sm table-striped text-center">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col" style="width: 70px;">#</th>
+                <th scope="col">Uživatelské jméno</th>
+                <th scope="col">Jméno Příjmení</th>
+                <th scope="col">Role</th>
+                <th scope="col">Akce</th>
+            </tr>
+        </thead>
+        <tbody>
+            {foreach $usersList as $row}
+                <tr>
+                    <td>{$row->id}</td>
+                    <td>{$row->username}</td>
+                    <td>{$row->firstname} {$row->lastname}</td>
+                    <td>{$row->role}</td>
+                    <td>
+                        <a n:href=":edit $row->id" title="">Upravit</a> |
+                        <a n:href="Delete! $row->id" title="" class="text-danger">Smazat</a>
+                    </td>
+                </tr>
+            {/foreach}
+        </tbody>
+    </table>
+    <a n:href=":edit" title="" class="btn btn-success">Přidat uživatele</a>
+{/block}

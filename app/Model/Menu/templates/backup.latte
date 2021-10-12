@@ -1,0 +1,20 @@
+<ul>
+    {foreach $menu as $item}
+
+        <li class="{first}active{/first}{if is_array($item['sub'])} drop-down {/if}"><a href="{$item['link']}" title="{$item['title']}">{$item['title']}</a>
+            {if is_array($item['sub'])}
+                <ul>
+
+                    {include menu, items => $item['sub']}
+                </ul>
+            {/if}
+        </li>
+    {/foreach}
+</ul>
+
+
+{define menu, $items}
+    {foreach $items as $item}
+        <a href="{$item['link']}" title="{$item['title']}" class="dropdown-item">{$item['title']}</a>
+    {/foreach}
+{/define}

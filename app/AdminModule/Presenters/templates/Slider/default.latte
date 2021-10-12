@@ -1,0 +1,50 @@
+{block content}
+
+{define title}Slider{/define}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="mb-3">
+                    <a n:href=":edit" class="btn btn-success">Přidat slide</a>
+                </div>
+                <table class="table table-sm table-striped text-center align-middle">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Slide</th>
+                        <th scope="col">URL</th>
+                        <th scope="col">Akce</th>
+                    </tr>
+                    </thead>
+                    <tbody id="sortable">
+
+                    {foreach $slides as $slide}
+                        <tr id="order-{$slide->id}" class="ui-state-default">
+                            <td class="align-middle"><span>{$slide->order}</span></td>
+                            <td class="align-middle"><span n:if="$slide->img"><img class="img-fluid" src="/img/slider/thumb_{$slide->img}"></span></td>
+                            <td class="align-middle"><span n:if="$slide->url">{$slide->url}</span></td>
+                            <td class="align-middle"><span><a n:href="Slider:edit $slide->id">Editovat</a> <a n:href="Delete! $slide->id" class="text-danger">Smazat</a></span></td>
+                        </tr>
+                    {/foreach}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{define addScripts}
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            jQuery("#sortable").sortable({ opacity: 0.8, cursor: 'move', update: function() {
+                    var order = jQuery(this).sortable("serialize");
+                    jQuery.post({plink Sortable!}, order);
+                }
+            });
+        });
+    </script>
+{/define}
