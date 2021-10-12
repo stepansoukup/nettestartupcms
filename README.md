@@ -18,3 +18,9 @@ user: DB_USER
 password: DB_PASS
 ```
 
+* import sql dump
+
+Přihlášení : /admin
+* user: admin
+* pass: admin2021
+
